@@ -46,3 +46,36 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+// Dynamic Rotating Title Effect for Hero Section
+const roles = [
+    "Junior Developer",
+    "Game Developer",
+    "Gameplay Programmer",
+    "XR Developer"
+];
+
+let roleIndex = 0;
+const rotatingTextElement = document.getElementById('rotating-role');
+
+function rotateRole() {
+    if (!rotatingTextElement) return;
+    
+    // Fade out
+    rotatingTextElement.style.opacity = '0';
+    rotatingTextElement.style.transform = 'translateY(5px)';
+
+    setTimeout(() => {
+        roleIndex = (roleIndex + 1) % roles.length;
+        rotatingTextElement.textContent = roles[roleIndex];
+        
+        // Fade in
+        rotatingTextElement.style.opacity = '1';
+        rotatingTextElement.style.transform = 'translateY(0)';
+    }, 300);
+}
+
+// Start rotation every 2 seconds
+if (rotatingTextElement) {
+    setInterval(rotateRole, 2000);
+}
