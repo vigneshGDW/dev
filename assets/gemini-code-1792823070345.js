@@ -1,0 +1,49 @@
+// Mobile Navbar Toggle
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const icon = hamburger.querySelector('i');
+        if (navLinks.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-xmark');
+        } else {
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        }
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            const icon = hamburger.querySelector('i');
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        });
+    });
+}
+
+// Active Nav Link Highlighting on Scroll
+const sections = document.querySelectorAll('section');
+const navItems = document.querySelectorAll('.nav-links a:not(.nav-btn)');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= (sectionTop - 150)) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href') === `#${current}`) {
+            item.classList.add('active');
+        }
+    });
+});
