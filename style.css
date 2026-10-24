@@ -146,7 +146,7 @@ ul {
 .hero h1 {
     font-size: 3rem;
     font-weight: 800;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .gradient-text {
@@ -155,11 +155,67 @@ ul {
     -webkit-text-fill-color: transparent;
 }
 
-.hero h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text-secondary);
+/* Shine effect on name/headings */
+.shine-effect {
+    position: relative;
+    display: inline-block;
+}
+
+.shine-effect::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.2) 50%,
+        rgba(255,255,255,0) 100%
+    );
+    transform: rotate(30deg);
+    animation: shine 4s infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) rotate(30deg); }
+    20% { transform: translateX(100%) rotate(30deg); }
+    100% { transform: translateX(100%) rotate(30deg); }
+}
+
+/* Dynamic Rotating Title Styling */
+.hero-title-wrapper {
+    font-size: 1.6rem;
+    font-weight: 700;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.static-prefix {
+    color: var(--text-primary);
+    background: linear-gradient(135deg, #ffffff, var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.rotating-text {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 2px;
+    min-width: 250px;
+    text-align: left;
+    display: inline-block;
+    animation: textFade 0.5s ease;
+}
+
+@keyframes textFade {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .hero p {
@@ -642,7 +698,7 @@ footer p:first-child {
         font-size: 2.2rem;
     }
 
-    .hero h2 {
-        font-size: 1.2rem;
+    .hero-title-wrapper {
+        font-size: 1.3rem;
     }
 }
