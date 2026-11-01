@@ -44,9 +44,8 @@
                 <span id="rotating-role" class="rotating-text">Junior Developer</span>
             </div>
 
-            <p>
-                Engineering high-performance gameplay systems and shippable mobile games with 2.5+ years of industry experience. Passionate about architecting scalable C# code and building immersive spatial XR interactions.
-            </p>
+            <p>Building meaningful digital experiences with creativity, precision, and purpose. 
+                Focused on solving problems, writing reliable code, and turning bold ideas into interactive realities. </p>
             <div class="hero-btns">
                 <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-gamepad"></i> View Projects</a>
                 <a href="https://github.com/vigneshGDW" target="_blank" class="btn btn-outline"><i class="fa-brands fa-github"></i> GitHub</a>
@@ -55,37 +54,79 @@
         </div>
     </section>
 
-    <!-- What I Do Section -->
+    <!-- What I Do Section (Interactive Carousel) -->
     <section id="about" class="section">
         <div class="container">
             <h2 class="section-title">What I Do</h2>
-            <div class="about-grid">
-                
-                <div class="about-card">
-                    <i class="fa-solid fa-code"></i>
-                    <h3>Gameplay Development</h3>
-                    <p>Building interactive gameplay mechanics, reusable systems, character controllers, UI interactions, and scalable game architecture using Unity and C#.</p>
+            <p class="section-subtitle">End-to-end responsibility from conceptual feasibility to rigorous testing and optimization</p>
+            
+            <div class="carousel-container">
+                <button class="carousel-btn prev-btn" id="prevCard" aria-label="Previous Card">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <div class="carousel-track-wrapper">
+                    <div class="carousel-track" id="carouselTrack">
+                        
+                        <!-- Card 1 -->
+                        <div class="carousel-card active">
+                            <div class="card-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                            <h3>1. Game Development</h3>
+                            <p>Understanding complete game concepts, evaluating technical feasibility, identifying development challenges, and translating ideas into practical game development solutions.</p>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="carousel-card">
+                            <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+                            <h3>2. Gameplay Programming</h3>
+                            <p>Understanding gameplay requirements, analyzing story progression and game flow, implementing gameplay logic, and ensuring interactions behave consistently with the intended game experience.</p>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="carousel-card">
+                            <div class="card-icon"><i class="fa-solid fa-vr-cardboard"></i></div>
+                            <h3>3. XR Development (AR / VR / MR)</h3>
+                            <p>Understanding client requirements and identifying the right immersive solution, whether Augmented Reality, Virtual Reality, or Mixed Reality. Translating real-world concepts into interactive experiences using Unity XR technologies.</p>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="carousel-card">
+                            <div class="card-icon"><i class="fa-solid fa-cubes"></i></div>
+                            <h3>4. Unity Development</h3>
+                            <p>Building complete interactive applications using Unity and C#. Continuously improving Unity development skills, exploring new technologies, implementing reusable systems, and translating technical concepts into functional solutions.</p>
+                        </div>
+
+                        <!-- Card 5 -->
+                        <div class="carousel-card">
+                            <div class="card-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                            <h3>5. Performance Optimization</h3>
+                            <p>Analyzing and optimizing CPU and GPU performance using the Unity Profiler. Identifying performance bottlenecks, monitoring resource usage, and improving application efficiency across target platforms.</p>
+                        </div>
+
+                        <!-- Card 6 -->
+                        <div class="carousel-card">
+                            <div class="card-icon"><i class="fa-solid fa-network-wired"></i></div>
+                            <h3>6. Multiplayer Development</h3>
+                            <p>Developing multiplayer functionality using Photon Fusion and exploring Unity Netcode. Working with network synchronization, player interactions, shared game states, and real-time multiplayer experiences.</p>
+                        </div>
+
+                        <!-- Card 7 -->
+                        <div class="carousel-card">
+                            <div class="card-icon"><i class="fa-solid fa-vial-circle-check"></i></div>
+                            <h3>7. Rigorous Testing & QA</h3>
+                            <p>Executing comprehensive self-testing and unit testing across all developed modules. Verifying that every feature functions flawlessly against concept requirements and client expectations prior to final delivery.</p>
+                        </div>
+
+                    </div>
                 </div>
 
-                <div class="about-card">
-                    <i class="fa-solid fa-network-wired"></i>
-                    <h3>Multiplayer Development</h3>
-                    <p>Implementing multiplayer functionality, network synchronization, player interactions, and shared game experiences using Photon Fusion & Netcode.</p>
-                </div>
-
-                <div class="about-card">
-                    <i class="fa-solid fa-vr-cardboard"></i>
-                    <h3>AR / VR / XR Development</h3>
-                    <p>Developing immersive interactive experiences using AR Foundation, XR Interaction Toolkit, object placement, tracking, and VR interactions.</p>
-                </div>
-
-                <div class="about-card">
-                    <i class="fa-solid fa-gauge-high"></i>
-                    <h3>Optimization & Debugging</h3>
-                    <p>Improving application performance, debugging complex issues, writing maintainable C# code, and building efficient development solutions.</p>
-                </div>
-
+                <button class="carousel-btn next-btn" id="nextCard" aria-label="Next Card">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
             </div>
+
+            <!-- Carousel Indicators / Dots -->
+            <div class="carousel-dots" id="carouselDots"></div>
         </div>
     </section>
 
