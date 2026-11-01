@@ -248,11 +248,12 @@ ul {
     font-size: 1rem;
 }
 
-/* About Grid */
+/* "What I Do" 2x2 Grid */
 .about-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
+    margin-top: 40px;
 }
 
 .about-card {
@@ -275,13 +276,14 @@ ul {
 }
 
 .about-card h3 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     margin-bottom: 10px;
 }
 
 .about-card p {
     color: var(--text-secondary);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
 
 /* Timeline */
