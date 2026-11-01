@@ -70,3 +70,55 @@ if (rotatingTextElement) {
         }, 300);
     }, 2000);
 }
+
+// Interactive Card Carousel for "What I Do" (Manual Click + Infinite Loop + Dots)
+const track = document.getElementById('carouselTrack');
+const cards = track ? Array.from(track.children) : [];
+const prevBtn = document.getElementById('prevCard');
+const nextBtn = document.getElementById('nextCard');
+const dotsContainer = document.getElementById('carouselDots');
+
+let currentIndex = 0;
+
+// Create dots dynamically
+if (cards.length > 0 && dotsContainer) {
+    cards.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+            goToCard(index);
+        });
+        dotsContainer.appendChild(dot);
+    });
+}
+
+const dots = dotsContainer ? Array.from(dotsContainer.children) : [];
+
+function updateCarousel() {
+    if (!track) return;
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    
+    // Update dots
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+    });
+}
+
+function goToCard(index) {
+    currentIndex = index;
+    updateCarousel();
+}
+
+function nextCard() {
+    currentIndex = (currentIndex + 1) % cards.length;
+    updateCarousel();
+}
+
+function prevCard() {
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+    updateCarousel();
+}
+
+if (nextBtn) nextBtn.addEventListener('click', nextCard);
+if (prevBtn) prevBtn.addEventListener('click', prevCard);
