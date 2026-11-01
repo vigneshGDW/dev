@@ -71,7 +71,7 @@ if (rotatingTextElement) {
     }, 2000);
 }
 
-// Interactive Card Carousel for "What I Do" (Manual Click + Infinite Loop + Dots)
+// Interactive Card Carousel for "What I Do" (10-Second Auto-Slide + Manual Click + Dots)
 const track = document.getElementById('carouselTrack');
 const cards = track ? Array.from(track.children) : [];
 const prevBtn = document.getElementById('prevCard');
@@ -79,6 +79,7 @@ const nextBtn = document.getElementById('nextCard');
 const dotsContainer = document.getElementById('carouselDots');
 
 let currentIndex = 0;
+let autoSlideInterval;
 
 // Create dots dynamically
 if (cards.length > 0 && dotsContainer) {
@@ -88,6 +89,7 @@ if (cards.length > 0 && dotsContainer) {
         if (index === 0) dot.classList.add('active');
         dot.addEventListener('click', () => {
             goToCard(index);
+            resetAutoSlide(); // Reset timer when user manually interacts
         });
         dotsContainer.appendChild(dot);
     });
@@ -120,5 +122,34 @@ function prevCard() {
     updateCarousel();
 }
 
-if (nextBtn) nextBtn.addEventListener('click', nextCard);
-if (prevBtn) prevBtn.addEventListener('click', prevCard);
+// Button event listeners with auto-slide reset
+if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+        nextCard();
+        resetAutoSlide();
+    });
+}
+
+if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+        prevCard();
+        resetAutoSlide();
+    });
+}
+
+// 10-Second Auto-Slide Timer Setup
+function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+        nextCard();
+    }, 10000); // 10,000 ms = 10 seconds
+}
+
+function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+}
+
+// Initialize auto-slide on load
+if (cards.length > 0) {
+    startAutoSlide();
+}
